@@ -1,0 +1,29 @@
+<section>
+    <h1> Step 2: Select your config and options </h1>
+    <form [formGroup]="form" class="config-info">
+        <div class="container">
+            <!-- <div> -->
+            <label for="model">Config:</label>
+            <select formControlName="carConfig" id="configSelect" (change)="changeConfig($event)">
+                <option *ngFor="let model of carConfigs" [value]="model['id']">{{model['description']}}</option>
+            </select>
+            <!-- </div> -->
+            <div class="lmn-2">Range: {{range}} miles - Max Speed: {{speed}} - Cost: {{price | currency: 'USD'}}</div>
+            <div *ngIf="toHitch">
+                <label for="includeTow" class="form-check-label">Tow hitch?</label>
+                <input type="checkbox" formControlName="towHitch" id="includeTow" (change)="checkHitchValue($event)"
+                    class="form-check-input" />
+            </div>
+            <div *ngIf="yoke">
+                <label for="includeYoke" class="form-check-label">Yok steering wheel?</label>
+                <input type="checkbox" formControlName="yoke" id="includeYoke" (change)="checkYokeValue($event)"
+                    class="form-check-input" />
+            </div>
+        </div>
+    </form>
+</section>
+<section>
+    <div class="row">
+        <img [src]="imgUrl" alt="Tesla Car Model" class="col-sm-12">
+    </div>
+</section>

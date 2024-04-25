@@ -1,0 +1,5 @@
+<button id="step1" [routerLink]="['/car-info']">Step 1</button>
+<button id="step2" [routerLink]="['/car-config']" [disabled]="configStep">Step 2</button>
+<button id="step3" [routerLink]="['/car-summary']" [disabled]="summaryStep">Step 3</button>
+
+<router-outlet></router-outlet>

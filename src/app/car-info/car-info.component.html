@@ -1,0 +1,21 @@
+<section>
+    <h1> Step 1: Choose your Model and color </h1>
+    <form [formGroup]="form" class="car-info">
+        <label for="modelSelect">Model:</label>
+        <select formControlName="carModel" id="modelSelect " (change)="changeModel($event)">
+            <option value="null">Choose...</option>
+            <option *ngFor="let model of carModel" [value]="model.code">{{model.description}}</option>
+        </select>
+
+        <label *ngIf="showColorDrpDwn" for="colorSelect">Color:</label>
+        <select *ngIf="showColorDrpDwn" formControlName="modelColor" id="colorSelect" (change)="changeColor($event)">
+            <option *ngFor="let color of carColor" [value]="color.code">{{color.description}}</option>
+        </select>
+    </form>
+</section>
+<section>
+    <div *ngIf="selectedColor" class="row">
+        <img [src]="imageUrl" alt="Tesla Car Model" class="col-sm-12">
+    </div>
+</section>
+   

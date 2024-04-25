@@ -1,0 +1,34 @@
+<section>
+    <h1> Step 3: Summary </h1>
+    <h4> Your Tesla {{model}}</h4>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">{{description}}</div>
+            <div class="col-sm-3">{{price | currency: 'USD'}}</div>
+        </div>
+        <div class="info">Range: {{range}} miles- Max speed: {{speed}} </div>
+        <div class="row" *ngIf="colorInfo.price">
+            <div class="col-sm-3 lmn-fw">{{colorName}} Color</div>
+            <div class="col-sm-3">{{colorPrice | currency: 'USD'}}</div>
+        </div>
+        <div class="row" *ngIf="towHitch">
+            <div class="col-sm-3 lmn-fw">Tow Hitch Package</div>
+            <div class="col-sm-3">{{towHitchPrice | currency: 'USD'}}</div>
+        </div>
+        <div class="row" *ngIf="yoke">
+            <div class="col-sm-3 lmn-fw">Yoke Steering Wheel Package</div>
+            <div class="col-sm-3">{{yokePrice | currency: 'USD'}}</div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3 lmn-fw">TOTAL COST</div>
+            <div class="col-sm-3">{{total | currency: 'USD'}}</div>
+        </div>
+        <hr>
+    </div>
+</section>
+<section>
+    <div class="row">
+        <img [src]="imgUrl" alt="Tesla Car Model" class="col-sm-12">
+    </div>
+</section>
